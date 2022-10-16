@@ -47,6 +47,11 @@ int main(void)
 
 	app_run();
 
+	printf("** write @0x28000000\n");
+	*((int*)0x28000000) = 1;
+	printf("** read @0x28000000\n");
+	int titi = *((int*)0x28000000);
+	printf("** read @0x28000000=%d\n", titi);
 	printf("** %s: Run CRT tests (may run forver)\n", arch_str);
 	crt_run_all();
 
